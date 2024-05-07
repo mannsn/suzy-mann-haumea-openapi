@@ -1,0 +1,40 @@
+:root {
+    /* CSS HEX */
+    --ash-gray: #ccdad1ff;
+    --ash-gray-2: #9caea9ff;
+    --battleship-gray: #788585ff;
+    --dim-gray: #6f6866ff;
+    --van-dyke: #38302eff;
+    --textdark: #001845;
+  }
+  
+  .quicksand-cdt {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
+  h1 {
+    text-align: center;
+    color: blueviolet;
+  }
+  
+  h2 {
+    text-align: center;
+    font-style: italic;
+    font-size:3vw
+  }
+
+  body {
+    background-color: var(--ash-gray);
+    color: var(--textdark);
+    font-family: "Quicksand";
+    font-size: 3vw;
+    padding: 15%;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
