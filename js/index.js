@@ -51,4 +51,5 @@ fetch(url)
   })
   .catch((error) => {
     console.error(`Image ${randomId} not found`, error);
+    
   });
