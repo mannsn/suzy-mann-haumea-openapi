@@ -11,7 +11,7 @@ function onFormSubmit(event) {
   const searchWord = data.get("searchWord");
   console.log(searchWord);
 
-  const searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}&page=4&limit=50`;
+  const searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}[term][is_public_domain]=true&page=4&limit=50`;
   console.log(searchurl);
 
   //fetch the url and if the data exists for the id, get info about the artwork and the art
@@ -33,7 +33,7 @@ function onFormSubmit(event) {
       console.log("length = ", artworkList.length);
 
       //If no artwork found, use a default image
-      if (length===0){
+      if (length === 0) {
         artworkList[0].id = 129884;
       }
 
@@ -64,11 +64,15 @@ function onFormSubmit(event) {
           console.log(artwork.title);
           const artistTitle = artwork.artist_title;
           console.log(artistTitle);
+          const artworkDescription = artwork.artworkDescription;
+          console.log(artworkDescription);
+          const departmentTitle = artwork.department_title;
+          console.log(departmentTitle);
           const artworkImageID = artwork.image_id;
           console.log(artworkImageID);
 
           //Add the title to the html
-          const artworkTitle = document.getElementById("artworkTitle");
+          const artworkTitle = document.getElementById("artworkTitleId");
           console.log(artworkTitle);
           artworkTitle.innerHTML = `Title: ${title}`;
 
@@ -77,6 +81,24 @@ function onFormSubmit(event) {
             const artistTitleElement = document.getElementById("artistTitleId");
             console.log(artistTitleElement);
             artistTitleElement.innerHTML = `Artist: ${artistTitle}`;
+          }
+
+          //If artist description is available, then add it to the html
+          if (artworkDescription != null) {
+            const artworkDescriptionElement = document.getElementById(
+              "artworkDescriptionId"
+            );
+            console.log(artworkDescriptionElement);
+            artworkDescriptionElement.innerHTML = `Description: ${artworkDescription}`;
+          }
+
+          //If artowrk department title is available, then add it to the html
+          if (departmentTitle != null) {
+            const departmentTitleElement = document.getElementById(
+              "departmentTitleId"
+            );
+            console.log(departmentTitleElement);
+            departmentTitleElement.innerHTML = `Department Title: ${departmentTitle}`;
           }
 
           //Get the artwork image for the image id
@@ -88,7 +110,7 @@ function onFormSubmit(event) {
           console.log(artworkImage);
           artworkImage.setAttribute("src", artworkSrcString);
           console.log(artworkSrcString);
-          card.hidden=false;
+          card.hidden = false;
         })
         .catch((error) => {
           console.error(`Image ${randomId} not found`, error);
@@ -104,4 +126,3 @@ function onFormSubmit(event) {
 
 const wordForm = document.getElementById("wordFormId");
 wordForm.addEventListener("submit", onFormSubmit);
-

@@ -18,13 +18,13 @@
     text-align: center;
     margin-top: 5%;
     color: blueviolet;
-    font-size: large;
+    font-size:larger;
   }
   
   h2 {
     text-align: center;
     font-style: italic;
-    font-size:small
+    font-size:medium;
   }
   p{
     text-align: center;
@@ -82,6 +82,7 @@
 
   .flip-card {
     background-color: transparent;
+    max-width: 60%;
     width: 400px;
     height: 400px;
     perspective: 1000px;
