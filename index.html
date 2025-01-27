@@ -23,12 +23,26 @@
     />
   </head>
   <body>
-  
+    <section id="logosection">
+      <div id="logodiv">
+        <a href="https://www.artic.edu">
+          <img
+            src="img/aiclogo.jpg"
+            alt="Art Institue of Chicago"
+            id="aiclogo"
+          />
+        </a>
+      </div>
+    </section>
+
+    <section id="mainsection">
       <h1 id="artworkName">Artwork from the Chicago Institute</h1>
       <p>
-        What kind of artwork do would you like from the Chicago Institue - enter
-        a word to search! Example: cat (or dog or Monet)
+        What kind of artwork would you like from the Art Institue Chicago? - enter
+        a word to search! 
       </p>
+      <p>Example: cat(or dog or Monet)</p>
+
       <form id="wordFormId" name="Word to Search" autocomplete="on">
         <label for="searchWord">Artwork search word</label>
         <input
@@ -36,10 +50,10 @@
           name="searchWord"
           id="searchWordId"
           required="true"
-        /><br />
+        />
         <button type="submit" class="button" name="submitButton">Submit</button>
       </form>
- 
+    </section>
 
     <section id="artworkSection">
       <div class="container">
@@ -58,6 +72,7 @@
         </div>
       </div>
     </section>
+
     <script src="js/index.js"></script>
   </body>
 </html>
