@@ -12,6 +12,7 @@ function onFormSubmit(event) {
   console.log(searchWord);
 
   const searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}[term][is_public_domain]=true&page=4&limit=50`;
+  
   console.log(searchurl);
 
   //fetch the url and if the data exists for the id, get info about the artwork and the art
@@ -121,7 +122,7 @@ function onFormSubmit(event) {
     });
 
   //Reset the form
-  event.target.reset();
+  //event.target.reset();
 }
 
 const wordForm = document.getElementById("wordFormId");
