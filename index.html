@@ -23,15 +23,41 @@
     />
   </head>
   <body>
-    <section id="artworkSection">
+  
       <h1 id="artworkName">Artwork from the Chicago Institute</h1>
-      <h2 id="artworkTitle"></h2>
-      <h2 id="artistTitleId"></h2>
-      <img id="artworkImage"
+      <p>
+        What kind of artwork do would you like from the Chicago Institue - enter
+        a word to search! Example: cat (or dog or Monet)
+      </p>
+      <form id="wordFormId" name="Word to Search" autocomplete="on">
+        <label for="searchWord">Artwork search word</label>
+        <input
+          type="text"
+          name="searchWord"
+          id="searchWordId"
+          required="true"
+        /><br />
+        <button type="submit" class="button" name="submitButton">Submit</button>
+      </form>
  
-      />
-    </section>
 
+    <section id="artworkSection">
+      <div class="container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img id="artworkImage" />
+            </div>
+            <div class="flip-card-back">
+              <h3 id="artistTitleId"></h3>
+              <h3 id="artworkTitleId"></h3>
+              <h3 id="departmentTitleId"></h3>
+              <h3 id="artworkDescriptionId"></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <script src="js/index.js"></script>
   </body>
 </html>
