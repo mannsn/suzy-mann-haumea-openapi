@@ -36,22 +36,28 @@
     </section>
 
     <section id="mainsection">
-      <h1 id="artworkName">Artwork from the Art Institute Chicago</h1>
+      <h1 id="artworkName">Artwork from the Art Institute of Chicago</h1>
       <p>
-        What kind of artwork would you like from the Art Institue Chicago? - enter
-        a word to search! 
+        Enter a word to search and select a button. Example: artwork + "cat" to find artwork that has cat
+        related information or artist + "Monet" to find artwork where Monet is the artist)
       </p>
-      <p>Example: cat(or dog or Monet)</p>
 
       <form id="wordFormId" name="Word to Search" autocomplete="on">
-        <label for="searchWord">Artwork search word</label>
+        <label for="searchWord">Search word</label>
         <input
           type="text"
           name="searchWord"
           id="searchWordId"
           required="true"
         />
-        <button type="submit" class="button" name="submitButton">Submit</button>
+        <br />
+
+        <label>
+          <input type="radio" name="option" value="1" id="artwork" /> Artwork
+        </label>
+        <label>
+          <input type="radio" name="option" value="2" id="artist" /> Artist
+        </label>
       </form>
     </section>
 
