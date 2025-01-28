@@ -1,4 +1,9 @@
 # suzy-mann-hamuea-openapi
+This website will retrieve "randomized" artwork from Art Institute of Chicago
+https://www.artic.edu/ using the public api
+https://www.artic.edu/open-access/public-api
+
+
 Download the files
 Select index.html and open in desired browser.
 
