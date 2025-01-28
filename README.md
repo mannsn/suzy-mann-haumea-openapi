@@ -1,6 +1,8 @@
 # suzy-mann-hamuea-openapi
 Download the files
 Select index.html and open in desired browser.
+
+To run:
 Enter search word + artwork button to do a general search on artwork (will search all text data about artwork).
 Enter search word + artist button to search the artist title field of the artwork.
 Click on return artwork to flip card and view information on artwork.
