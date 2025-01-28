@@ -1,18 +1,29 @@
-const card = document.getElementById("artworkSection");
-card.hidden = true;
-
-//Callback for submit
-function onFormSubmit(event) {
+//Callback for radio buttons
+function handleRadioChange(event) {
   event.preventDefault();
+  console.log(event);
 
-  const data = new FormData(event.target);
-  console.log(data);
+  const searchWord = document.getElementById("searchWordId").value;
+  if (!searchWord) {
+    alert("Please enter some text before selecting an option.");
+    event.target.checked = false; // Uncheck the radio button
+    return;
+  }
 
-  const searchWord = data.get("searchWord");
-  console.log(searchWord);
+  const selectedValue = event.target.value;
+  console.log(`Selected option: ${selectedValue}`);
+  let searchurl;
+  // search based on radio button plus search word
+  if (selectedValue === "1") {
+    console.log("Option 1 selected");
+    //searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}[term]//[is_public_domain]=true&page=2&limit=50`;
+    searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}&query[term][is_public_domain]=true&page=1&limit=50`;
+  } else if (selectedValue === "2") {
+    console.log("Option 2 selected");
+    //searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent//(searchWord)}&query[term][is_public_domain]=true`;
+    searchurl = `https://api.artic.edu/api/v1/artworks/search?query[match][artist_title]=${searchWord}`;
+  }
 
-  const searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}[term][is_public_domain]=true&page=4&limit=50`;
-  
   console.log(searchurl);
 
   //fetch the url and if the data exists for the id, get info about the artwork and the art
@@ -33,14 +44,17 @@ function onFormSubmit(event) {
       console.log(artworkList);
       console.log("length = ", artworkList.length);
 
-      //If no artwork found, use a default image
-      if (length === 0) {
-        artworkList[0].id = 129884;
-      }
+      //Default artwork id
+      let randomId = 129884;
+      let artFound = false;
 
       //Randomly generate an index into the array to get a valid artwork id
-      const randomInt = Math.floor(Math.random() * artworkList.length);
-      const randomId = artworkList[randomInt].id;
+      if (artworkList.length > 0) {
+        const randomInt = Math.floor(Math.random() * artworkList.length);
+        randomId = artworkList[randomInt].id;
+        artFound = true;
+      }
+
       console.log(randomId);
 
       const url = `https://api.artic.edu/api/v1/artworks/${randomId}`;
@@ -75,7 +89,12 @@ function onFormSubmit(event) {
           //Add the title to the html
           const artworkTitle = document.getElementById("artworkTitleId");
           console.log(artworkTitle);
-          artworkTitle.innerHTML = `Title: ${title}`;
+
+          if (artFound === true) {
+            artworkTitle.innerHTML = `Title: ${title}`;
+          } else {
+            artworkTitle.innerHTML = `Title: DEFAULT ARTWORK/ ARTWORK NOT FOUND ${title}`;
+          }
 
           //If artist information is available, then add it to the html
           if (artistTitle != null) {
@@ -95,9 +114,8 @@ function onFormSubmit(event) {
 
           //If artowrk department title is available, then add it to the html
           if (departmentTitle != null) {
-            const departmentTitleElement = document.getElementById(
-              "departmentTitleId"
-            );
+            const departmentTitleElement =
+              document.getElementById("departmentTitleId");
             console.log(departmentTitleElement);
             departmentTitleElement.innerHTML = `Department Title: ${departmentTitle}`;
           }
@@ -121,9 +139,14 @@ function onFormSubmit(event) {
       console.error(`No images were found`, error);
     });
 
-  //Reset the form
-  //event.target.reset();
+  event.target.checked = false;
 }
 
+const card = document.getElementById("artworkSection");
+card.hidden = true;
+
+//Find the form, add listeners to the radio buttons
 const wordForm = document.getElementById("wordFormId");
-wordForm.addEventListener("submit", onFormSubmit);
+document.querySelectorAll('input[name="option"]').forEach((radio) => {
+  radio.addEventListener("change", handleRadioChange);
+});
