@@ -16,11 +16,9 @@ function handleRadioChange(event) {
   // search based on radio button plus search word
   if (selectedValue === "1") {
     console.log("Option 1 selected");
-    //searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}[term]//[is_public_domain]=true&page=2&limit=50`;
     searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}&query[term][is_public_domain]=true&page=1&limit=50`;
   } else if (selectedValue === "2") {
     console.log("Option 2 selected");
-    //searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent//(searchWord)}&query[term][is_public_domain]=true`;
     searchurl = `https://api.artic.edu/api/v1/artworks/search?query[match][artist_title]=${searchWord}`;
   }
 
