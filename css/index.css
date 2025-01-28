@@ -15,36 +15,20 @@
   font-style: normal;
 }
 
-
 body {
   background-color: var(--ash-gray);
   color: var(--textdark);
   font-family: "Quicksand";
   font-size: 2vw;
-  padding: 5%;
-}
+ }
 
-h1,
-h2,
-p,
-a,
-li,
-ul,
-div {
-  margin-top: 0;
-  margin-bottom: 1em;
-  padding: 1%;
-}
 
-section {
-  scroll-margin-top: 1em;
-  margin-top: 5em;
-}
+
 
 h1 {
   text-align: center;
   color: blueviolet;
-  
+  font-size:medium
 }
 
 h2 {
@@ -54,15 +38,17 @@ h2 {
 }
 
 h3 {
-  font-style:italic;
+  font-style: italic;
+}
 
+form {
+  text-align: center;
 }
 
 p {
   text-align: center;
-
+  font-size: medium;
 }
-
 
 img {
   display: block;
@@ -73,14 +59,30 @@ img {
 
 label {
   font-style: italic;
+  margin-right: 1em;
+  font-size:medium
+}
+
+#aiclogo {
+  /*display: block;*/
+  max-width: 10%;
+  height: auto;
+  margin-left: 2em;
+  top:0;
   
+}
+
+#mainsection{
+  margin-top:0;
 }
 
 input[type="text"] {
   align-items: center;
-  width: 100%;
   box-sizing: border-box;
- 
+}
+
+input[type="radio"] {
+  accent-color: rgb(129, 83, 197) /* Changes the color of the radio button */
 }
 
 button {
@@ -90,29 +92,28 @@ button {
   color: #001845;
   font-weight: bold;
   text-align: center;
-  display: block;
+  align-self: center;
   max-width: 25%;
   border-radius: 60%;
   font-family: "Quicksand";
   margin-top: 1em;
 }
- 
-
-
 
 .container {
+  margin-top: 6em;
+  margin-bottom:6em;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh; /* Full viewport height */
-
+  height: 20vh; /* Full viewport height */
+  margin-bottom: 2em;
 }
 
 .flip-card {
   background-color: transparent;
   max-width: 50%;
-  width: 30vw;
-  height: 30vw;
+  width: 32vw;
+  height: 32vw;
   perspective: 1000px;
 }
 
@@ -132,7 +133,6 @@ button {
 
 .flip-card-front,
 .flip-card-back {
-  
   position: absolute;
   width: 100%;
   height: 100%;
