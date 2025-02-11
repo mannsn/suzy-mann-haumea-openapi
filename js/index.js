@@ -9,17 +9,25 @@ function handleRadioChange(event) {
     event.target.checked = false; // Uncheck the radio button
     return;
   }
+  else{
+    event.target.checked = true;
+  }
 
   const selectedValue = event.target.value;
   console.log(`Selected option: ${selectedValue}`);
-  let searchurl;
+  let searchurl = '';
+  const callbox = document.getElementById("callout-container");
+
   // search based on radio button plus search word
   if (selectedValue === "1") {
     console.log("Option 1 selected");
     searchurl = `https://api.artic.edu/api/v1/artworks/search?q=${searchWord}&query[term][is_public_domain]=true&page=1&limit=50`;
+    callbox.innerHTML = `${searchWord} artwork search`;
+    
   } else if (selectedValue === "2") {
     console.log("Option 2 selected");
     searchurl = `https://api.artic.edu/api/v1/artworks/search?query[match][artist_title]=${searchWord}`;
+   callbox.innerHTML = `${searchWord} artist search`;
   }
 
   console.log(searchurl);

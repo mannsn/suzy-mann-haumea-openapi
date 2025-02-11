@@ -33,8 +33,9 @@ h1 {
 
 h2 {
   text-align: center;
-  font-style: italic;
-  font-size: medium;
+  color: blueviolet;
+  font-size:medium
+}
 }
 
 h3 {
