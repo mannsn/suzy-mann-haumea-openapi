@@ -20,6 +20,8 @@ body {
   color: var(--textdark);
   font-family: "Quicksand";
   font-size: 2vw;
+  padding-left: 5em;
+  padding-right: 5em;;
  }
 
 
@@ -28,13 +30,13 @@ body {
 h1 {
   text-align: center;
   color: blueviolet;
-  font-size:medium
+  /*font-size:large;*/
 }
 
 h2 {
   text-align: center;
   color: blueviolet;
-  font-size:medium
+  /*font-size:medium*/
 }
 }
 
@@ -48,7 +50,7 @@ form {
 
 p {
   text-align: center;
-  font-size: medium;
+  /*font-size: medium;*/
 }
 
 img {
@@ -61,14 +63,14 @@ img {
 label {
   font-style: italic;
   margin-right: 1em;
-  font-size:medium
+  /*font-size:medium*/
 }
 
 #aiclogo {
-  /*display: block;*/
+  display: block;
   max-width: 10%;
   height: auto;
-  margin-left: 2em;
+  margin-left: 0em;
   top:0;
   
 }
